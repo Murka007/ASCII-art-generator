@@ -1,0 +1,18 @@
+.input {
+    display: block;
+    outline: none;
+    background: var(--sub-alt-color);
+    color: var(--text-color);
+    border: 1px solid;
+    border-color: var(--border-default-opacity);
+    transition: border-color 200ms;
+    border-radius: var(--button-roundness);
+    width: 225px;
+    padding: 10px 15px;
+    letter-spacing: 4px;
+}
+
+.input:focus {
+    border-color: var(--text-color);
+    transition: none;
+}

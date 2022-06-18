@@ -1,0 +1,83 @@
+.select {
+    position: relative;
+    background: var(--sub-alt-color);
+    color: var(--text-color);
+    width: 225px;
+    padding: 10px 15px;
+    
+    border: 1px solid;
+    border-color: var(--border-default-opacity);
+    transition: border-color 200ms;
+    border-radius: var(--button-roundness);
+    user-select: none;
+    cursor: pointer;
+}
+
+.options {
+    position: absolute;
+    background: var(--sub-alt-color);
+    left: -1px;
+    right: 0;
+    top: 100%;
+    width: inherit;
+    z-index: 2;
+    border: solid var(--border-default-opacity);
+    border-color: var(--text-color);
+    transition: border-color 200ms;
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 var(--button-roundness) var(--button-roundness);
+}
+
+.option {
+    padding: 10px 15px;
+}
+
+.option:hover {
+    background: var(--sub-color);
+    color: var(--sub-alt-color);
+    transition: background 100ms, color 100ms;
+}
+
+.active {
+    border-color: var(--text-color);
+    border-radius: var(--button-roundness) var(--button-roundness) 0 0;
+    transition: none;
+}
+
+.icon {
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--text-color);
+    float: right;
+    margin-top: 6px;
+    animation: rotate1 200ms forwards;
+}
+
+.active > .icon {
+    animation: rotate2 200ms forwards;
+}
+
+@keyframes rotate1 {   
+    from {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate2 {   
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.select > label {
+    color: black;
+    font-weight: 600;
+}

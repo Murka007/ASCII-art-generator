@@ -1,0 +1,14 @@
+.upload {
+    text-align: center;
+}
+
+.header1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.header2 {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    color: var(--sub-color);
+}

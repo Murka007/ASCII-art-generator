@@ -1,6 +1,8 @@
 {
-  "name": "image-to-ascii-converter",
+  "name": "ascii-art-generator",
+  "author": "Murka",
   "version": "0.1.0",
+  "description": "A tool that generates ASCII art from your image",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",

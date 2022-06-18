@@ -1,0 +1,33 @@
+.preview {
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.table:first-child {
+    margin-right: 15px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    font-family: monospace;
+    color: white;
+    white-space: nowrap;
+}
+
+.container > div {
+    width: 100%;
+}

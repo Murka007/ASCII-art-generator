@@ -1,0 +1,7 @@
+.group {
+    margin-bottom: 20px;
+}
+
+.group:last-child {
+    margin: 0;
+}
