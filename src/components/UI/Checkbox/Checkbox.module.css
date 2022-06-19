@@ -22,8 +22,18 @@
     width: 1.25rem;
     height: 1.25rem;
     background: var(--sub-alt-color);
-    border: 1px solid var(--border-default-opacity);
+    border: 1px solid;
+    border-color: var(--border-default-opacity);
+    transition: border-color var(--hover-transition);
     border-radius: var(--roundness);
+}
+
+.container:hover .checkmark {
+    border-color: var(--border-default);
+}
+
+.container:active .checkmark {
+    border-color: var(--text-color);
 }
 
 .checkmark:after {

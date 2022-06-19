@@ -1,5 +1,12 @@
 export type FilePromise = string | ArrayBuffer | null;
 
+export interface ISettings {
+    invertASCII: boolean;
+    invertColors: boolean;
+    characters: string;
+    quality: number;
+}
+
 export interface IASCII {
     readonly data: string[];
     readonly width: number;
@@ -12,8 +19,8 @@ export interface OverflownData {
 }
 
 export interface IScale {
-    readonly width: number;
-    readonly height: number;
+    width: number;
+    height: number;
 }
 
 export interface IOption {

@@ -12,6 +12,7 @@
     --roundness: 2.5px;
     --button-roundness: 7px;
     --color-selection: #92bee0;
+    --hover-transition: 100ms;
 }
 
 * {

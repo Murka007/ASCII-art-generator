@@ -13,21 +13,56 @@
     right: 0;
 }
 
+.containerWrapper {
+    display: flex;
+}
+
 .table:first-child {
-    margin-right: 15px;
+    margin-right: 0.5rem;
 }
 
 .img {
     width: 100%;
     height: 100%;
+    user-select: none;
 }
 
 .container {
     font-family: monospace;
     color: white;
     white-space: nowrap;
+    border: 1px solid;
+    border-color: var(--sub-color);
+    transition: border-color var(--hover-transition);
+    border-radius: 0.1rem;
+}
+
+.hidden {
+    overflow: auto;
+}
+
+.hidden::-webkit-scrollbar, .hidden::-webkit-scrollbar-corner {
+    width: 2em;
+    height: 2em;
+    background: transparent;
+}
+
+.hidden > div {
+    visibility: hidden;
 }
 
 .container > div {
     width: 100%;
+}
+
+.container > img {
+    border-radius: 0.1rem;
+}
+
+.inverted {
+    color: var(--bg-color);
+}
+
+.inverted > div {
+    background: white;
 }

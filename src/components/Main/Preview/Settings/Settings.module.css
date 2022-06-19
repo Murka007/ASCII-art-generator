@@ -1,5 +1,5 @@
 .settings {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -15,9 +15,10 @@
 
 .group {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px 0;
 }
-/* .group {
-    display: inline-block;
-} */
+
+.group:nth-child(2) {
+    justify-content: space-around;
+}

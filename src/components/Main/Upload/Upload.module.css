@@ -1,5 +1,6 @@
 .upload {
     text-align: center;
+    animation: OpacityTransition 1s forwards;
 }
 
 .header1 {
@@ -11,4 +12,9 @@
     margin-top: 0;
     margin-bottom: 1.5em;
     color: var(--sub-color);
+}
+
+@keyframes OpacityTransition {
+    from { opacity: 0 }
+    to { opacity: 1 }
 }

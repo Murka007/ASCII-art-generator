@@ -1,5 +1,5 @@
 import React from "react";
-import { FilePromise, IASCII, IScale } from "../types/types";
+import { FilePromise, IASCII, IScale, ISettings, Quality } from "../types/types";
 import { map } from "./Common";
 
 export const density = "%#Wioc-^';:,,, ...   ";
@@ -21,20 +21,31 @@ function createImage(src: string) {
     })
 }
 
-async function getImageData(src: string) {
+export async function getImageData(src: string, scale: number = 1) {
     const image = await createImage(src);
+
+    const width = image.width * scale;
+    const height = image.height * scale;
     return new Promise<ImageData>(resolve => {
         const canvas = document.createElement("canvas");
-        canvas.width = image.width;
-        canvas.height = image.height;
+        canvas.width = width;
+        canvas.height = height;
         const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-        ctx.drawImage(image, 0, 0, image.width, image.height);
-        resolve(ctx.getImageData(0, 0, image.width, image.height));
+        ctx.drawImage(image, 0, 0, width, height);
+        resolve(ctx.getImageData(0, 0, width, height));
     })
 }
 
-export async function getASCII(src: string, density: string) {
-    const { data, width, height } = await getImageData(src);
+const Resolution: { [ key in string]: number } = {
+    [Quality.original]: 1,
+    [Quality.high]: 0.8,
+    [Quality.middle]: 0.4,
+    [Quality.low]: 0.2
+};
+
+export async function getASCII(src: string, settings: ISettings) {
+    const { invertASCII, characters, quality } = settings;
+    const { data, width, height } = await getImageData(src, Resolution[quality]);
 
     const ascii: IASCII = {
         data: [],
@@ -42,7 +53,7 @@ export async function getASCII(src: string, density: string) {
         height: height
     };
 
-    return new Promise<IASCII>(resolve => {
+    return new Promise<IASCII>((resolve) => {
         for (let j = 0; j < height; j++) {
             let row = "";
             for (let i = 0; i < width; i++) {
@@ -52,9 +63,9 @@ export async function getASCII(src: string, density: string) {
                 const b = data[pixelIndex + 2];
                 const average = (r + g + b) / 3;
 
-                const len = density.length - 1;
-                const charIndex = Math.floor(map(average, 0, 255, len, 0));
-                const char = density.charAt(charIndex);
+                const len = characters.length - 1;
+                const charIndex = Math.floor(map(average, 0, 255, invertASCII ? 0 : len, invertASCII ? len : 0));
+                const char = characters.charAt(charIndex);
                 row += (char === " " ? "‏ ‎" : char);
             }
             ascii.data.push(row);

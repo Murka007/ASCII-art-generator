@@ -4,7 +4,7 @@ import "./Button.module.css";
 import { ButtonType } from "../../../types/types";
 
 interface ButtonProps {
-    readonly handleEvent: () => void;
+    readonly handleEvent: () => Promise<void> | void;
 
     /**
      * List of additional classes

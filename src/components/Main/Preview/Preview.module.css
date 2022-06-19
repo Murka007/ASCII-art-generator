@@ -1,7 +1,16 @@
+.preview {
+    animation: OpacityTransition 1s forwards;
+}
+
 .group {
     margin-bottom: 20px;
 }
 
 .group:last-child {
     margin: 0;
+}
+
+@keyframes OpacityTransition {
+    from { opacity: 0 }
+    to { opacity: 1 }
 }

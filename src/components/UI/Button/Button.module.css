@@ -2,31 +2,33 @@
     outline: none;
     background: var(--sub-alt-color);
     color: var(--main-color);
-    transition: background 100ms, color 100ms;
+    transition: background var(--hover-transition), color var(--hover-transition);
     font-size: 1.25rem;
-    max-width: 110px;
-    width: 100%;
-    height: 40px;
+    height: 45px;
     border: none;
     border-radius: var(--button-roundness);
     cursor: pointer;
+    padding: 0 15px;
+    text-align: center;
 }
 
 .button:hover {
     background: var(--main-color);
     color: var(--sub-alt-color);
-    transition: background 100ms, color 100ms;
 }
 
 .button:active {
     background: var(--sub-color);
     color: var(--sub-alt-color);
-    transition: background 100ms, color 100ms;
     border: 1px solid var(--text-color);
 }
 
 .unique {
     background: var(--sub-color);
     color: var(--text-color);
-    transition: background 100ms, color 100ms;
+}
+
+.button > img {
+    margin-right: 5px;
+    vertical-align: text-bottom;
 }

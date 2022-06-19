@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Classes from "./Settings.module.css";
 import "./Settings.module.css";
-import { ButtonType, IOption, Quality } from "../../../../types/types";
+import { ButtonType, IOption, ISettings, Quality } from "../../../../types/types";
 import { density } from "../../../../utils/ImageManager";
 import Checkbox from "../../../UI/Checkbox/Checkbox";
 import Button from "../../../UI/Button/Button";
 import Select from "../../../UI/Select/Select";
 import Input from "../../../UI/Input/Input";
+import GenerateImage from "../../../../img/Generate.svg";
+import UploadImage from "../../../../img/Upload.svg";
+import ResetImage from "../../../../img/Reset.svg";
 
 const options: IOption[] = [
     { value: Quality.original, label: "Original" },
@@ -15,16 +18,25 @@ const options: IOption[] = [
     { value: Quality.low, label: "Low" }
 ];
 
-const Settings = () => {
+interface SettingsProps {
+    readonly generateASCII: (settings: ISettings) => Promise<void> | void;
+    readonly invertColors: boolean;
+    readonly setInvertColors: React.Dispatch<React.SetStateAction<boolean>>;
+    readonly setSrc: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+const Settings = ({ generateASCII, invertColors, setInvertColors, setSrc }: SettingsProps) => {
 
     const [invertASCII, setInvertASCII] = useState<boolean>(false);
-    const [invertColors, setInvertColors] = useState<boolean>(false);
     const [characters, setCharacters] = useState<string>(density);
     const [quality, setQuality] = useState<number>(Quality.low);
 
-    function generateASCII(): void {
-
-    }
+    const settings: ISettings = {
+        invertASCII,
+        invertColors,
+        characters,
+        quality
+    };
 
     function reset(): void {
         setInvertASCII(false);
@@ -60,8 +72,20 @@ const Settings = () => {
                     >Invert Colors</Checkbox>
                 </div>
 
-                <Button list={[Classes.button]} handleEvent={generateASCII} type={ButtonType.unique}>Generate</Button>
-                <Button handleEvent={reset}>Reset</Button>
+                <div className={Classes.group}>
+                    <Button
+                        list={[Classes.button]}
+                        handleEvent={() => generateASCII(settings)}
+                        type={ButtonType.unique}
+                    ><img src={GenerateImage}/>Generate</Button>
+
+                    <Button
+                        list={[Classes.button]}
+                        handleEvent={reset}
+                    ><img src={ResetImage}/>Reset</Button>
+
+                    <Button handleEvent={() => setSrc(null)}><img src={UploadImage}/>Upload</Button>
+                </div>
             </div>
         </div>
     );

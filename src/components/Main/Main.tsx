@@ -13,7 +13,7 @@ const Main = () => {
                 src === null ? (
                     <Upload setSrc={setSrc}/>
                 ) : (
-                    <Preview src={src}/>
+                    <Preview src={src} setSrc={setSrc}/>
                 )
             }
         </main>

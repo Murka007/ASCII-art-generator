@@ -1,6 +1,6 @@
 import { OverflownData } from "../types/types";
 
-export function map(...args: number[]): number {
+export function map(...args: [number, number, number, number, number]): number {
     const [value, start1, stop1, start2, stop2] = args;
     return (value - start1) / (stop1 - start1) * (stop2 - start2) + start2;
 }
