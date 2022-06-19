@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ASCII-art-generator/static/css/main.aa384a9d.css",
+    "main.js": "/ASCII-art-generator/static/js/main.63456be2.js",
+    "static/media/Reset.svg": "/ASCII-art-generator/static/media/Reset.ef82ad0a63db02c8e511ba897d0e0f17.svg",
+    "index.html": "/ASCII-art-generator/index.html",
+    "static/media/Generate.svg": "/ASCII-art-generator/static/media/Generate.d0200c6f01ff37011b900b9110083390.svg",
+    "static/media/Upload.svg": "/ASCII-art-generator/static/media/Upload.4660dbb6c9b89b05979ffe51261e9925.svg",
+    "main.aa384a9d.css.map": "/ASCII-art-generator/static/css/main.aa384a9d.css.map",
+    "main.63456be2.js.map": "/ASCII-art-generator/static/js/main.63456be2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa384a9d.css",
+    "static/js/main.63456be2.js"
+  ]
+}
